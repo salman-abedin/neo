@@ -1,0 +1,16 @@
+services:
+  lint:
+    container_name: lint
+    build:
+        context: .
+        dockerfile: lint.dockerfile
+    volumes:
+      - .:/app
+  deploy:
+    build: .
+    container_name: app
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    restart: unless-stopped
