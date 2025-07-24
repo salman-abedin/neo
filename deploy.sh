@@ -16,18 +16,18 @@ eof
 }
 
 notify_success(){
-    echo "✅ Neo was Deployed Succeesfully!" "To the infinity and beyond!"
+    notify "✅ Neo was Deployed Succeesfully!" "To the infinity and beyond!"
     echo "$timestamp,$commit_id,$commit_author,succeeded" >> "$ENTRYFILE"
 }
 
 notify_failure(){
-    echo "❌ Neo Deployment Failed!" "Failure is the piller of success!"
+    notify "❌ Neo Deployment Failed!" "Failure is the piller of success!"
     echo "$timestamp,$commit_id,$commit_author,failed" >> "$ENTRYFILE"
     exit 1
 }
 
 notify_rollback(){
-    echo "🧻 Neo Deployment Rolledback!" "One step forward, two step backward!"
+    notify "🧻 Neo Deployment Rolledback!" "One step forward, two step backward!"
     echo "$timestamp,$commit_id,$commit_author,rolledback" >> "$ENTRYFILE"
 }
 
@@ -45,7 +45,7 @@ healthcheck(){
             notify_success
             return 0
         else
-            if [ $i -lt $max_attempts ]; then
+            if [ "$i" -lt $max_attempts ]; then
                 sleep "$delay"
             fi
         fi
