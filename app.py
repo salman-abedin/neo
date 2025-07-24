@@ -19,7 +19,7 @@ HTML_TEMPLATE = """
 </head>
 <body>
     <div class="container">
-        <h1>🐍 Simple Flask App (V0.0.8)</h1>
+        <h1>🐍 Simple Flask App (V0.0.9)</h1>
         <p>Welcome to your dockerized Flask application!</p>
         
         <h2>Available Endpoints:</h2>
