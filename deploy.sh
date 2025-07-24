@@ -63,7 +63,7 @@ main(){
     commit_id=$1
     commit_author=$2
     git pull
-    # docker compose up --build lint || notify_failure
+    docker compose up --build lint || notify_failure
     docker compose down
     docker compose up -d --build deploy
     healthcheck &
